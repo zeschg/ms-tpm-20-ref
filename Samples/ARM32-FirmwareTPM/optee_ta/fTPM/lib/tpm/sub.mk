@@ -1,4 +1,5 @@
-FTPM_FLAGS = -DGCC -DUSE_WOLFCRYPT -DSIMULATION=NO -DVTPM -D_ARM_
+# FTPM_FLAGS = -DGCC -DUSE_WOLFCRYPT -DSIMULATION=NO -DVTPM -D_ARM_
+FTPM_FLAGS = -DGCC -DUSE_TEE -DSIMULATION=NO -DVTPM -D_ARM_ -DCERTIFYX509_DEBUG=NO -DALG_SM3_256=YES -DALG_SM4=YES
 FTPM_DEBUG =  -DCOMPILER_CHECKS=YES -DfTPMDebug -DRUNTIME_SIZE_CHECKS -DLIBRARY_COMPATIBILITY_CHECK
 FTPM_RELEASE = -DCOMPILER_CHECKS=NO -DRUNTIME_SIZE_CHECKS=NO -DLIBRARY_COMPATIBILITY_CHECK=NO
 
@@ -222,24 +223,24 @@ srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/CryptEccData.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/CryptCmac.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/BnMath.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/CryptEccSignature.c
-srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/wolf/TpmToWolfDesSupport.c
-srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/wolf/TpmToWolfMath.c
-srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/wolf/TpmToWolfSupport.c
+# srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/wolf/TpmToWolfDesSupport.c
+# srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/wolf/TpmToWolfMath.c
+# srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/wolf/TpmToWolfSupport.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/AlgorithmTests.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/CryptSelfTest.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/Ticket.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/CryptDes.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/BnMemory.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/CryptPrimeSieve.c
-srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/ossl/TpmToOsslSupport.c
-srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/ossl/TpmToOsslDesSupport.c
-srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/ossl/TpmToOsslMath.c
+# srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/ossl/TpmToOsslSupport.c
+# srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/ossl/TpmToOsslDesSupport.c
+# srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/ossl/TpmToOsslMath.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/CryptEccKeyExchange.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/BnConvert.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/CryptRand.c
-srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/ltc/TpmToLtcSupport.c
-srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/ltc/TpmToLtcDesSupport.c
-srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/ltc/TpmToLtcMath.c
+# srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/ltc/TpmToLtcSupport.c
+# srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/ltc/TpmToLtcDesSupport.c
+# srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/ltc/TpmToLtcMath.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/CryptEccMain.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/CryptSym.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/RsaKeyCache.c
@@ -272,3 +273,8 @@ srcs-y += tpm_symlink/TPMCmd/tpm/src/support/Bits.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/main/SessionProcess.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/main/CommandDispatcher.c
 srcs-y += tpm_symlink/TPMCmd/tpm/src/main/ExecCommand.c
+
+srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/tee/TpmToTEEHash.c
+srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/tee/TpmToTEESym.c
+srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/tee/TpmToTEEMath.c
+srcs-y += tpm_symlink/TPMCmd/tpm/src/crypt/tee/TpmToTEESupport.c
